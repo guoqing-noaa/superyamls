@@ -67,9 +67,9 @@ dcObserver={
 
 # list of header files
 listHeader=[
-  "basic_config/mpasjedi_hyb3denvar.yaml",
-  "basic_config/mpasjedi_getkf_observer.yaml",
-  "basic_config/mpasjedi_getkf_solver.yaml"
+  "../basic_config/mpasjedi_hyb3denvar.yaml",
+  "../basic_config/mpasjedi_getkf_observer.yaml",
+  "../basic_config/mpasjedi_getkf_solver.yaml"
     ]
 
 #
@@ -103,9 +103,9 @@ for key in obsUser:
 #
 # write out rrfs-workflow yaml files
 #
-obdir="obtype_config/"
+obdir="../obtype_config/"
 for fheader in listHeader:
-  output_name=fheader.replace("basic_config/mpasjedi_","")
+  output_name=fheader.replace("../basic_config/mpasjedi_","")
   if not "getkf" in fheader:
     output_name="jedivar.yaml"
   #
