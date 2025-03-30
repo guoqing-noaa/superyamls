@@ -80,7 +80,7 @@ nargs=len(args)-1
 if nargs <1:
   print(f"{args[0]} [?|query|all|obs_str]\n")
   print(f"  obs_str specifies a subset of observers, delimited with a comma")
-  print(f"  eg: t133  or t133,t187 or t133,q133,uv233 etc")
+  print(f"  eg: aircar_t133  or aircar_t133,adpsfc_t187,aircar_uv233 etc")
   exit()
 
 if args[1] == "query" or args[1] == "?":
