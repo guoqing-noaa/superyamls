@@ -52,7 +52,7 @@ dcObserver={
   "sfcshp_q182": "sfcshp_specificHumidity_182",
   "sfcshp_q183": "sfcshp_specificHumidity_183",
   "sfcshp_ps180": "sfcshp_stationPressure_180",
-  "sfcshp_ps182": "sfcshp_stationPressure_182",
+# "sfcshp_ps182": "sfcshp_stationPressure_182",
   "sfcshp_uv280": "sfcshp_winds_280",
   "sfcshp_uv282": "sfcshp_winds_282",
   "sfcshp_uv284": "sfcshp_winds_284",
