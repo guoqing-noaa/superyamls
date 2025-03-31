@@ -449,7 +449,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -1275,7 +1274,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -2538,7 +2536,6 @@ cost function:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -2686,7 +2683,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -2857,7 +2853,6 @@ cost function:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -3174,7 +3169,6 @@ cost function:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -4850,7 +4844,6 @@ cost function:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -5161,7 +5154,6 @@ cost function:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -6021,7 +6013,6 @@ cost function:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -7703,7 +7694,6 @@ cost function:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -8014,7 +8004,6 @@ cost function:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -8325,7 +8314,6 @@ cost function:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -8636,7 +8624,6 @@ cost function:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -10180,7 +10167,6 @@ cost function:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -10680,7 +10666,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -11227,7 +11212,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -11503,7 +11487,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -12053,7 +12036,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -12330,7 +12312,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -13252,7 +13233,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -13423,7 +13403,6 @@ cost function:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -13571,7 +13550,6 @@ cost function:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -13742,7 +13720,6 @@ cost function:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)

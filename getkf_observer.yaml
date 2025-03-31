@@ -388,7 +388,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -1214,7 +1213,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -2477,7 +2475,6 @@ observations:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -2625,7 +2622,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -2796,7 +2792,6 @@ observations:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -3113,7 +3108,6 @@ observations:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -4789,7 +4783,6 @@ observations:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -5100,7 +5093,6 @@ observations:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -5960,7 +5952,6 @@ observations:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -7642,7 +7633,6 @@ observations:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -7953,7 +7943,6 @@ observations:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -8264,7 +8253,6 @@ observations:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -8575,7 +8563,6 @@ observations:
            minvalue: -200
            maxvalue: 200
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -10119,7 +10106,6 @@ observations:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -10619,7 +10605,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -11166,7 +11151,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -11442,7 +11426,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -11992,7 +11975,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -12269,7 +12251,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -13191,7 +13172,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -13362,7 +13342,6 @@ observations:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
@@ -13510,7 +13489,6 @@ observations:
              value: is_not_valid
            where operator: or
            action:
-             name: reject
              name: reduce obs space
 
          # Time window filter
@@ -13681,7 +13659,6 @@ observations:
            minvalue: -130
            maxvalue: 130
            action:
-             name: reject
              name: reduce obs space
 
          # Gross Error Check (windEastward)
