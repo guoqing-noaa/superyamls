@@ -13,15 +13,17 @@ Run `yaml_cat_together.py t133,uv233` will generate a super YAML file that conta
 
 ### 2. Check available observers in a yaml file. eg:
 ```
-./yaml_list_obs jedivar.yaml
+./yaml_list_obs  jedivar.yaml
 ```
 
 ### 3. Use specified observers only and remove other observers in a YAML file. eg:
 ```
-./yaml_use_obs jedivar.yaml t133,uv233
+./yaml_use_obs  jedivar.yaml  "t133,q133,uv233,t120,q120,uv220"
+./yaml_list_obs  jedivar.yaml
 ```
 
 ### 4. Remove specified observers in a YAML file. eg:
 ```
-./yaml_remove_obs jedivar.yaml t133,q133,uv233
+./yaml_remove_obs  jedivar.yaml  "t120,q120,uv220"
+./yaml_list_obs   jedivar.yaml
 ```
