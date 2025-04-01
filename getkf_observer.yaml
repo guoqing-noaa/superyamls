@@ -1003,7 +1003,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -1279,7 +1279,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -1551,7 +1551,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
                  # The new feature "surface observation error ramp"
                  # needs to be added to UFO to align with the ramp
                  # options for temperature and humidity in GSI.
@@ -3866,7 +3866,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
          # Error inflation based on errormod (qcmod.f90)
          - filter: Perform Action
@@ -4141,7 +4141,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
          # Error inflation based on errormod (qcmod.f90)
          - filter: Perform Action
@@ -5577,7 +5577,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -7258,7 +7258,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -9149,7 +9149,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -11766,7 +11766,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -12041,7 +12041,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -12317,7 +12317,7 @@ observations:
                options:
                  variable: specificHumidity
                  inflation factor: 8.0
-                 request_saturation_specific_humidity_geovals: true
+                 request_saturation_specific_humidity_geovals: false
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
