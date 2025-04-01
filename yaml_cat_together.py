@@ -144,7 +144,6 @@ for fheader in listHeader:
     for key, value in dcObserverUser.items():
       fobs=obdir+value+".yaml"
       with open(fobs,'r') as infile2:
-        comment_zone=False
         for line in infile2:
           if "seed_time:" in line:
             line=line.replace("2024-05-27T00:00:00Z","@analysisDate@")
@@ -159,14 +158,6 @@ for fheader in listHeader:
               line=line.replace(".nc4", ".nc")
           elif "gnss_ztd_zenithTotalDelay" in line:
             line=line.replace("gnss_ztd_zenithTotalDelay","gnss_ztd")
-          elif "Error inflation based on pressure check (setupq.f90)" in line:
-            comment_zone=True
-            line="#"+line
-          elif "request_saturation_specific_humidity_geovals: true" in line:
-            comment_zone=False
-            line="#"+line
-          elif comment_zone:
-            line="#"+line
 
           # ~~~~~~
           outfile.write(line)
