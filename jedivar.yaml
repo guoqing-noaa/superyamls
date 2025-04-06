@@ -188,17 +188,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -465,17 +465,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -737,17 +737,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -1016,17 +1016,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -1293,17 +1293,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -1566,17 +1566,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -1839,17 +1839,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: stationPressure
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: stationPressure
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -2108,17 +2108,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: stationPressure
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: stationPressure
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -2389,18 +2389,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -2707,18 +2707,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT60M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT60M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -3024,18 +3024,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -3339,17 +3339,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -3614,17 +3614,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -3889,17 +3889,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -4165,17 +4165,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -4434,17 +4434,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: stationPressure
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: stationPressure
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -4711,18 +4711,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -5022,18 +5022,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -5331,17 +5331,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -5606,17 +5606,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -5884,18 +5884,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -6193,17 +6193,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -6468,17 +6468,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -6743,17 +6743,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -7018,17 +7018,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -7293,17 +7293,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -7571,18 +7571,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -7882,18 +7882,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -8193,18 +8193,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -8504,18 +8504,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -8916,17 +8916,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -9191,17 +9191,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -9460,17 +9460,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: stationPressure
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: stationPressure
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -10046,18 +10046,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -10363,18 +10363,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -10717,17 +10717,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -10990,17 +10990,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -11265,17 +11265,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -11541,17 +11541,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: airTemperature
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: airTemperature
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -11816,17 +11816,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -12092,17 +12092,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -12369,17 +12369,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: specificHumidity
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: specificHumidity
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -12638,17 +12638,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: stationPressure
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: stationPressure
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -12927,18 +12927,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT60M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT60M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -13291,18 +13291,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT60M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT60M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -13609,18 +13609,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT60M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT60M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -13926,18 +13926,18 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-         - filter: Temporal Thinning
-           apply at iterations: 0,1
-           filter variables:
-           - name: windEastward
-           - name: windNorthward
-           min_spacing: PT90M
-           tolerance: PT0H
-           seed_time: "@analysisDate@"
-           category_variable:
-             name: MetaData/longitude_latitude_pressure
-           action:
-             name: reduce obs space
+#         - filter: Temporal Thinning
+#           apply at iterations: 0,1
+#           filter variables:
+#           - name: windEastward
+#           - name: windNorthward
+#           min_spacing: PT90M
+#           tolerance: PT0H
+#           seed_time: "@analysisDate@"
+#           category_variable:
+#             name: MetaData/longitude_latitude_pressure
+#           action:
+#             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
