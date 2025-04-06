@@ -122,6 +122,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpsfc.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -397,6 +398,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_adpsfc.nc"
+             missing file action: "warn"
              #obsfile: "obsout/sfcship_tsen_obs_2024052700_dc.nc4"
            obsgrouping:
              group variables: ["stationIdentification"]
@@ -672,6 +674,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpsfc.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -947,6 +950,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpsfc.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -1222,6 +1226,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_adpsfc.nc"
+             missing file action: "warn"
              #obsfile: "obsout/sfcship_q_obs_2024052700_dc.nc4"
            obsgrouping:
              group variables: ["stationIdentification"]
@@ -1498,6 +1503,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpsfc.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -1774,6 +1780,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpsfc.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -2042,6 +2049,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpsfc.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -2310,6 +2318,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpsfc.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -2629,6 +2638,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_adpsfc.nc"
+             missing file action: "warn"
              #obsfile: "obsout/sfcship_uv_obs_2024052700_dc.nc4"
            obsgrouping:
              group variables: ["stationIdentification"]
@@ -2946,6 +2956,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpsfc.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -3262,6 +3273,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpupa.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -3536,6 +3548,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpupa.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -3810,6 +3823,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpupa.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -4085,6 +4099,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpupa.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -4360,6 +4375,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpupa.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -4627,6 +4643,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpupa.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -4937,6 +4954,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_adpupa.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -5247,6 +5265,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircar.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -5521,6 +5540,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircar.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -5796,6 +5816,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircar.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -6106,6 +6127,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircft.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -6380,6 +6402,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircft.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -6654,6 +6677,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircft.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -6928,6 +6952,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircft.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -7202,6 +7227,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircft.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -7477,6 +7503,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircft.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -7787,6 +7814,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircft.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -8097,6 +8125,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircft.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -8407,6 +8436,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_aircft.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -8719,6 +8749,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_gnss_ztd.nc
+             missing file action: "warn"
 
          obsgrouping:
            group variables: ["stationIdentification"]
@@ -8819,6 +8850,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_msonet.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -9093,6 +9125,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_msonet.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -9368,6 +9401,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_msonet.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -9635,6 +9669,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_msonet.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -10260,6 +10295,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_proflr.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -10615,6 +10651,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_rassda.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -10887,6 +10924,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -11161,6 +11199,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -11435,6 +11474,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
              #obsfile: "obsout/sfcship_tsen_obs_2024052700_dc.nc4"
            obsgrouping:
              group variables: ["stationIdentification"]
@@ -11710,6 +11750,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -11985,6 +12026,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -12260,6 +12302,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
              #obsfile: "obsout/sfcship_q_obs_2024052700_dc.nc4"
            obsgrouping:
              group variables: ["stationIdentification"]
@@ -12536,6 +12579,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -12812,6 +12856,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -13175,6 +13220,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -13494,6 +13540,7 @@ cost function:
            engine:
              type: H5File
              obsfile: "data/obs/ioda_sfcshp.nc"
+             missing file action: "warn"
              #obsfile: "obsout/sfcship_uv_obs_2024052700_dc.nc4"
            obsgrouping:
              group variables: ["stationIdentification"]
@@ -13811,6 +13858,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_vadwnd.nc
+             missing file action: "warn"
            obsgrouping:
              group variables: ["stationIdentification"]
              sort variable: "pressure"
@@ -14173,6 +14221,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_amsua_n19.nc
+             missing file action: "warn"
          obsdataout:
            engine:
              type: H5File
@@ -14549,6 +14598,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_amsua_n20.nc
+             missing file action: "warn"
          obsdataout:
            engine:
              type: H5File
@@ -15132,6 +15182,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_atms_npp.nc
+             missing file action: "warn"
          obsdataout:
            engine:
              type: H5File
@@ -15718,6 +15769,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_abi_g16.nc
+             missing file action: "warn"
          obsdataout:
            engine:
              type: H5File
@@ -16208,6 +16260,7 @@ cost function:
            engine:
              type: H5File
              obsfile: data/obs/ioda_abi_g18.nc
+             missing file action: "warn"
          obsdataout:
            engine:
              type: H5File
