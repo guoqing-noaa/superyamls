@@ -24,14 +24,8 @@ if os.path.exists(yfile2):
 #
 os.replace(yfile, yfile2)
 with open(yfile2, 'r') as infile, open(yfile, 'w') as outfile:
-    comment_zone = False
     for line in infile:
-        # comment out "- filter: Temporal Thinning"
-        if "# Duplicate Check" in line:
-            comment_zone = True
-        elif comment_zone:
-            line = "#" + line
-            if "reduce obs space" in line:
-                comment_zone = False
-
         outfile.write(line)
+        if "obsdataout:" in line:
+            nspaces = len(line) - len(line.lstrip())
+            outfile.write(" " * nspaces + '  empty obs space action: "skip output"\n')

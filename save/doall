@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for file in ./*.yaml; do
+  ./yaml_add_emptyObsSpaceAction $file 
+done
