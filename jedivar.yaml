@@ -14109,6 +14109,10 @@ cost function:
          name: amsua_n19
          _anchor_channels: &amsua_n19_channels 1-15
          _anchor_use_flag: &amsua_n19_use_flag [ 1,  1,  1,  1,  1, 1, -1, -1,  1,  1, -1,  -1,  -1,  1,  1 ]
+         _anchor_error: &amsua_n19_error [
+             2.500, 2.200, 2.000, 0.550, 0.300,
+             0.230, 0.230, 0.250, 0.250, 0.350,
+             0.400, 0.550, 0.800, 3.000, 3.500]
          _anchor_obserr_bound_max: &amsua_n19_obserr_bound_max [4.5, 4.5, 4.5, 2.5, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.5, 3.5, 4.5, 4.5, 4.5]
          distribution:
            name: "RoundRobin"
@@ -14265,9 +14269,7 @@ cost function:
            channels: *amsua_n19_channels
            options:
              channels: *amsua_n19_channels
-             obserr_clearsky: [ 2.500, 2.200, 2.000, 0.550, 0.300,
-                                0.230, 0.230, 0.250, 0.250, 0.350,
-                                0.400, 0.550, 0.800, 3.000, 3.500]
+             obserr_clearsky: *amsua_n19_error
              clwret_function:
                name: ObsFunction/CLWRetMW
                options:
@@ -14419,9 +14421,7 @@ cost function:
                    err1:  [20.000, 18.000, 12.000,  3.000,  0.500,
                             0.300,  0.230,  0.250,  0.250,  0.350,
                             0.400,  0.550,  0.800,  3.000, 18.000]
-               obserr_clearsky: [2.500, 2.200, 2.000, 0.550, 0.300,
-                                  0.230, 0.230, 0.250, 0.250, 0.350,
-                                  0.400, 0.550, 0.800, 3.000, 3.500]
+               obserr_clearsky: *amsua_n19_error
        #  Gross check
        - filter: Background Check
          filter variables:
@@ -14514,6 +14514,12 @@ cost function:
                1,  1,  1, -1, -1,
                1,  1,  1,  1,  1,
                1,  1]
+         _anchor_error: &atms_n20_error [
+             4.500,  4.500,  4.500,  2.500,  0.550,
+             0.300,  0.300,  0.400,  0.400,  0.400,
+             0.450,  0.450,  0.550,  0.800,  4.000,
+             4.000,  4.000,  3.500,  3.000,  3.000,
+             3.000,  3.000]
          _anchor_obserr_bound_max: &atms_n20_obserr_bound_max
              [4.5, 4.5, 3.0, 3.0, 1.0,
               1.0, 1.0, 1.0, 1.0, 1.0,
@@ -14828,11 +14834,7 @@ cost function:
              channels: *atms_n20_channels
              options:
                channels: *atms_n20_channels
-               obserr_clearsky:  [ 4.500,  4.500,  4.500,  2.500,  0.550,
-                                   0.300,  0.300,  0.400,  0.400,  0.400,
-                                   0.450,  0.450,  0.550,  0.800,  4.000,
-                                   4.000,  4.000,  3.500,  3.000,  3.000,
-                                   3.000,  3.000]
+               obserr_clearsky: *atms_n20_error
                clwret_function:
                  name: CLWRetFromObs@DerivedMetaData
                obserr_function:
@@ -14947,11 +14949,7 @@ cost function:
                obserr_function:
                  name: InitialObsError@DerivedMetaData
                  channels: *atms_n20_channels
-               obserr_clearsky:  [ 4.500,  4.500,  4.500,  2.500,  0.550,
-                                   0.300,  0.300,  0.400,  0.400,  0.400,
-                                   0.450,  0.450,  0.550,  0.800,  4.000,
-                                   4.000,  4.000,  3.500,  3.000,  3.000,
-                                   3.000,  3.000]
+               obserr_clearsky: *atms_n20_error
 
        - filter: Perform Action
          filter variables:
@@ -15060,6 +15058,12 @@ cost function:
                1,  1,  1, -1, -1,
                1,  1,  1,  1,  1,
                1,  1]
+         _anchor_error: &atms_npp_error [
+             4.500,  4.500,  4.500,  2.500,  0.550,
+             0.300,  0.300,  0.400,  0.400,  0.400,
+             0.450,  0.450,  0.550,  0.800,  4.000,
+             4.000,  4.000,  3.500,  3.000,  3.000,
+             3.000,  3.000]
          _anchor_obserr_bound_max: &atms_npp_obserr_bound_max
              [4.5, 4.5, 3.0, 3.0, 1.0,
               1.0, 1.0, 1.0, 1.0, 1.0,
@@ -15375,11 +15379,7 @@ cost function:
              channels: *atms_npp_channels
              options:
                channels: *atms_npp_channels
-               obserr_clearsky:  [ 4.500,  4.500,  4.500,  2.500,  0.550,
-                                   0.300,  0.300,  0.400,  0.400,  0.400,
-                                   0.450,  0.450,  0.550,  0.800,  4.000,
-                                   4.000,  4.000,  3.500,  3.000,  3.000,
-                                   3.000,  3.000]
+               obserr_clearsky: *atms_npp_error
                clwret_function:
                  name: CLWRetFromObs@DerivedMetaData
                obserr_function:
@@ -15494,11 +15494,7 @@ cost function:
                obserr_function:
                  name: InitialObsError@DerivedMetaData
                  channels: *atms_npp_channels
-               obserr_clearsky:  [ 4.500,  4.500,  4.500,  2.500,  0.550,
-                                   0.300,  0.300,  0.400,  0.400,  0.400,
-                                   0.450,  0.450,  0.550,  0.800,  4.000,
-                                   4.000,  4.000,  3.500,  3.000,  3.000,
-                                   3.000,  3.000]
+               obserr_clearsky: *atms_npp_error
 
        - filter: Perform Action
          filter variables:
