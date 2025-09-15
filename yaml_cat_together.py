@@ -60,7 +60,7 @@ dcObserver = {
     "vadwnd_uv224": "vadwnd_winds_224",
 # satellite obs
     "amsua_n19": "amsua_n19",
-    "amsua_n20": "atms_n20",
+    "atms_n20": "atms_n20",
     "atms_npp": "atms_npp",
     "abi_g16": "abi_g16",
     "abi_g18": "abi_g18",
