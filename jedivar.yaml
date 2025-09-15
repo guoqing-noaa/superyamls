@@ -14506,15 +14506,15 @@ cost function:
          action:
            name: reject
      - obs space:
-         name: amsua_n20
-         _anchor_channels: &amsua_n20_channels 1-22
-         _anchor_use_flag: &amsua_n20_use_flag
+         name: atms_n20
+         _anchor_channels: &atms_n20_channels 1-22
+         _anchor_use_flag: &atms_n20_use_flag
              [ 1,  1,  1,  1,  1,
                1,  1,  1,  1,  1,
                1,  1,  1, -1, -1,
                1,  1,  1,  1,  1,
                1,  1]
-         _anchor_obserr_bound_max: &amsua_n20_obserr_bound_max
+         _anchor_obserr_bound_max: &atms_n20_obserr_bound_max
              [4.5, 4.5, 3.0, 3.0, 1.0,
               1.0, 1.0, 1.0, 1.0, 1.0,
               1.0, 1.0, 1.0, 2.0, 4.5,
@@ -14526,16 +14526,16 @@ cost function:
          obsdatain:
            engine:
              type: H5File
-             obsfile: "data/obs/ioda_amsua_n20.nc"
+             obsfile: "data/obs/ioda_atms_n20.nc"
              missing file action: "warn"
          obsdataout:
            empty obs space action: "skip output"
            engine:
              type: H5File
-             obsfile: jdiag_amsua_n20.nc
+             obsfile: jdiag_atms_n20.nc
          simulated variables: [brightnessTemperature]
          observed variables: [brightnessTemperature]
-         channels: *amsua_n20_channels
+         channels: *atms_n20_channels
        obs operator:
            name: CRTM
            Absorbers: [H2O,O3,CO2]
@@ -14544,7 +14544,7 @@ cost function:
            Cloud_Seeding: true
            SurfaceWindGeoVars: uv
            obs options:
-             Sensor_ID: amsua_n20
+             Sensor_ID: atms_n20
              EndianType: little_endian
              CoefficientPath: data/crtm/
              IRVISlandCoeff: IGBP
@@ -14554,16 +14554,16 @@ cost function:
          - localization method: Horizontal Gaspari-Cohn
            lengthscale: 200e3 # orig
        obs bias:
-         input file:  data/satbias_in/amsua_n20.satbias.nc
-         output file: data/satbias_out/amsua_n20.satbias.nc
+         input file:  data/satbias_in/atms_n20.satbias.nc
+         output file: data/satbias_out/atms_n20.satbias.nc
          variational bc:
            predictors:
            - name: constant
            - name: lapseRate
              order: 2
-             tlapse: &amsua_n20_tlapse  data/satbias_in/amsua_n20.tlapse.txt
+             tlapse: &atms_n20_tlapse  data/satbias_in/atms_n20.tlapse.txt
            - name: lapseRate
-             tlapse: *amsua_n20_tlapse
+             tlapse: *atms_n20_tlapse
            - name: emissivityJacobian
            - name: sensorScanAngle
              order: 4
@@ -14578,11 +14578,11 @@ cost function:
            step size: 1.0e-4
            largest analysis variance: 10000.0
            prior:
-             input file: data/satbias_in/amsua_n20.satbias_cov.nc
+             input file: data/satbias_in/atms_n20.satbias_cov.nc
              inflation:
                ratio: 1.1
                ratio for small dataset: 2.0
-           output file: data/satbias_out/amsua_n20.satbias_cov.nc
+           output file: data/satbias_out/atms_n20.satbias_cov.nc
 
        obs pre filters:
        # Calculate CLW retrieved from observation
@@ -14643,13 +14643,13 @@ cost function:
        - filter: Variable Assignment
          assignments:
          - name: CLWMatchIndex@DerivedMetaData
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            type: float
            function:
              name: CLWMatchIndexMW@ObsFunction
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              options:
-               channels: *amsua_n20_channels
+               channels: *atms_n20_channels
                clwobs_function:
                  name: CLWRetFromObs@DerivedMetaData
                clwbkg_function:
@@ -14664,13 +14664,13 @@ cost function:
        - filter: Variable Assignment
          assignments:
          - name: InitialObsError@DerivedMetaData
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            type: float
            function:
              name: ObsErrorModelRamp@ObsFunction
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              options:
-               channels: *amsua_n20_channels
+               channels: *atms_n20_channels
                xvar:
                  name: CLWRetSymmetric@DerivedMetaData
                x0:    [ 0.030,  0.030,  0.030,  0.020,  0.030,
@@ -14698,28 +14698,28 @@ cost function:
        - filter: Variable Assignment
          assignments:
          - name: Innovation@DerivedMetaData
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            type: float
            function:
              name: ObsFunction/Arithmetic
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              options:
                variables:
                - name: brightnessTemperature@ObsValue
-                 channels: *amsua_n20_channels
+                 channels: *atms_n20_channels
                - name: brightnessTemperature@HofX
-                 channels: *amsua_n20_channels
+                 channels: *atms_n20_channels
                coefs: [1, -1]
 
         # Toss the data if the hofx is missing or outside of range
        - filter: Domain Check
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          where:
          - variable:
              name: HofX/brightnessTemperature
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
            value: is_valid
            minvalue: 50.00001
            maxvalue: 449.99999
@@ -14730,7 +14730,7 @@ cost function:
        - filter: Bounds Check
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          test variables:
          - name: GeoVaLs/observable_domain_mask
            flag all filter variables if any test variable is out of bounds: true
@@ -14741,12 +14741,12 @@ cost function:
        - filter: Perform Action
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          action:
            name: assign error
            error function:
              name: InitialObsError@DerivedMetaData
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
 
        # Step 1: Remove Observations from the Edge of the Scan
        - filter: Domain Check
@@ -14821,13 +14821,13 @@ cost function:
        - filter: Variable Assignment
          assignments:
          - name: DerivedMetaData/HydrometeorCheckATMS
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            type: float
            function:
              name: HydrometeorCheckATMS@ObsFunction
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              options:
-               channels: *amsua_n20_channels
+               channels: *atms_n20_channels
                obserr_clearsky:  [ 4.500,  4.500,  4.500,  2.500,  0.550,
                                    0.300,  0.300,  0.400,  0.400,  0.400,
                                    0.450,  0.450,  0.550,  0.800,  4.000,
@@ -14837,15 +14837,15 @@ cost function:
                  name: CLWRetFromObs@DerivedMetaData
                obserr_function:
                  name: InitialObsError@DerivedMetaData
-                 channels: *amsua_n20_channels
+                 channels: *atms_n20_channels
 
        - filter: Bounds Check
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          test variables:
          - name: DerivedMetaData/HydrometeorCheckATMS
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          maxvalue: 0.0
          actions:
            - name: set
@@ -14857,84 +14857,84 @@ cost function:
        - filter: Variable Assignment
          assignments:
          - name: ObsErrorFactorTopo@DerivedMetaData
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            type: float
            function:
              name: ObsErrorFactorTopoRad@ObsFunction
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              options:
-               sensor: amsua_n20
-               channels: *amsua_n20_channels
+               sensor: atms_n20
+               channels: *atms_n20_channels
 
        - filter: Perform Action
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          action:
            name: inflate error
            inflation variable:
              name: ObsErrorFactorTopo@DerivedMetaData
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
 
        # Step 7: Obs Error Inflation based on TOA Transmittancec Check
        - filter: Variable Assignment
          assignments:
          - name: ObsErrorFactorTransmitTop@DerivedMetaData
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            type: float
            function:
              name: ObsErrorFactorTransmitTopRad@ObsFunction
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              options:
-               channels: *amsua_n20_channels
+               channels: *atms_n20_channels
 
        - filter: Perform Action
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          action:
            name: inflate error
            inflation variable:
              name: ObsErrorFactorTransmitTop@DerivedMetaData
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
 
        # Step 8: Observation Error Inflation based on Surface Jacobian Check
        - filter: Variable Assignment
          assignments:
          - name: ObsErrorFactorSurfJacobian@DerivedMetaData
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            type: float
            function:
              name: ObsErrorFactorSurfJacobianRad@ObsFunction
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              options:
-               sensor: amsua_n20
-               channels: *amsua_n20_channels
+               sensor: atms_n20
+               channels: *atms_n20_channels
                obserr_demisf: [0.010, 0.020, 0.015, 0.020, 0.200]
                obserr_dtempf: [0.500, 2.000, 1.000, 2.000, 4.500]
 
        - filter: Perform Action
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          action:
            name: inflate error
            inflation variable:
              name: ObsErrorFactorSurfJacobian@DerivedMetaData
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
 
        # Step 9: Situation Dependent Check
        - filter: Variable Assignment
          assignments:
          - name: ObsErrorFactorSituDepend@DerivedMetaData
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            type: float
            function:
              name: ObsErrorFactorSituDependMW@ObsFunction
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              options:
-               sensor: amsua_n20
-               channels: *amsua_n20_channels
+               sensor: atms_n20
+               channels: *atms_n20_channels
                clwbkg_function:
                  name: CLWRetFromBkg@DerivedMetaData
                clwobs_function:
@@ -14943,10 +14943,10 @@ cost function:
                  name: SIRetFromObs@DerivedMetaData
                clwmatchidx_function:
                  name: CLWMatchIndex@DerivedMetaData
-                 channels: *amsua_n20_channels
+                 channels: *atms_n20_channels
                obserr_function:
                  name: InitialObsError@DerivedMetaData
-                 channels: *amsua_n20_channels
+                 channels: *atms_n20_channels
                obserr_clearsky:  [ 4.500,  4.500,  4.500,  2.500,  0.550,
                                    0.300,  0.300,  0.400,  0.400,  0.400,
                                    0.450,  0.450,  0.550,  0.800,  4.000,
@@ -14956,12 +14956,12 @@ cost function:
        - filter: Perform Action
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          action:
            name: inflate error
            inflation variable:
              name: ObsErrorFactorSituDepend@DerivedMetaData
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
 
        # Step 10: Gross check
        # Remove data if abs(Obs-HofX) > absolute threhold
@@ -14977,37 +14977,37 @@ cost function:
        - filter: Variable Assignment
          assignments:
          - name: ObsErrorBound@DerivedMetaData
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            type: float
            function:
              name: ObsErrorBoundMW@ObsFunction
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              options:
-               sensor: amsua_n20
-               channels: *amsua_n20_channels
+               sensor: atms_n20
+               channels: *atms_n20_channels
                obserr_bound_latitude:
                  name: ObsErrorFactorLat@DerivedMetaData
                obserr_bound_transmittop:
                  name: ObsErrorFactorTransmitTop@DerivedMetaData
-                 channels: *amsua_n20_channels
+                 channels: *atms_n20_channels
                  options:
-                   channels: *amsua_n20_channels
+                   channels: *atms_n20_channels
                obserr_bound_topo:
                  name: ObsErrorFactorTopo@DerivedMetaData
-                 channels: *amsua_n20_channels
+                 channels: *atms_n20_channels
                obserr_function:
                  name: InitialObsError@DerivedMetaData
-                 channels: *amsua_n20_channels
+                 channels: *atms_n20_channels
                  threhold: 3
-               obserr_bound_max: *amsua_n20_obserr_bound_max
+               obserr_bound_max: *atms_n20_obserr_bound_max
 
        - filter: Background Check
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          function absolute threshold:
          - name: ObsErrorBound@DerivedMetaData
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          actions:
            - name: set
              flag: GrossCheck
@@ -15018,15 +15018,15 @@ cost function:
        - filter: Bounds Check
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          test variables:
          - name: InterChannelConsistencyCheck@ObsFunction
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            options:
-             channels: *amsua_n20_channels
+             channels: *atms_n20_channels
              use passive_bc: true
-             sensor: amsua_n20
-             use_flag: *amsua_n20_use_flag
+             sensor: atms_n20
+             use_flag: *atms_n20_use_flag
          maxvalue: 1.0e-12
          actions:
            - name: set
@@ -15038,13 +15038,13 @@ cost function:
        - filter: Bounds Check
          filter variables:
          - name: brightnessTemperature
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
          test variables:
          - name: ObsFunction/ChannelUseflagCheckRad
-           channels: *amsua_n20_channels
+           channels: *atms_n20_channels
            options:
-             channels: *amsua_n20_channels
-             use_flag: *amsua_n20_use_flag
+             channels: *atms_n20_channels
+             use_flag: *atms_n20_use_flag
          minvalue: 1.0e-12
          actions:
            - name: set
