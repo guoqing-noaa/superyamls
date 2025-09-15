@@ -149,11 +149,13 @@ for fheader in listHeader:
         # loop through user defined obsevers
         for key, value in dcObserverUser.items():
             fobs = obdir+value+".yaml"
+            # read all lines from an observer
             block = []
             with open(fobs, 'r') as infile2:
                 for line in infile2:
                     block.append(line)
 
+            # replace, comment, change
             comment_zone = False
             for i, line in enumerate(block):
                 if value in line:
@@ -178,7 +180,15 @@ for fheader in listHeader:
                 # ~~~~~~~~
                 block[i] = line
 
-            # remove the first two unnessary filters
+            # remove the following block
+            # # Reduce observation error and turn off ObsErrorFactorPressureCheck
+            for i, line in enumerate(block):
+                if '# Reduce observation error and turn off ObsErrorFactorPressureCheck' in line:
+                    pos = i
+                    del block[pos:pos+8]
+                    break
+
+            # remove the first two unnessary filters excpet wind288
             knt = 0
             for i, line in enumerate(block):
                 if "- filter:" in line:
@@ -193,7 +203,16 @@ for fheader in listHeader:
                 pos1 -= 1
             if block[pos2-1].strip().startswith("#"):
                 pos2 -= 1
-            del block[pos1:pos2]
+            if not "msonet_winds_288.yaml" in fobs:
+                del block[pos1:pos2]
+            else:
+                # remove the two unnessary filters for uv288
+                for i, line in enumerate(block):
+                    if "# Accept, reject, or passivate (monitor)" in line:
+                        pos = i
+                        del block[pos:pos+24]
+                        break
+
             # write out lines
             for line in block:
                 outfile.write(line)
