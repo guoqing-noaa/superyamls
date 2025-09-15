@@ -9644,9 +9644,7 @@ observations:
          # ------------------
          # Mesonet winds provider/station use lists
          - filter: RejectList  # initially reject all providers
-           apply at iterations: 0,1
          - filter: AcceptList  # accept back selected providers
-           apply at iterations: 0,1
            where:
            - variable: MetaData/dataProviderOrigin
              is_in: ["RAWS","NEDOR","SFWMD","MOComAgNet","UDFCD","CAIC",
