@@ -64,6 +64,9 @@ dcObserver = {
     "atms_npp": "atms_npp",
     "abi_g16": "abi_g16",
     "abi_g18": "abi_g18",
+    "atms_n21": "atms_n21",
+    "amsua_metop-b": "amsua_metop-b",
+    "amsua_metop-c": "amsua_metop-c",
     }
 
 # list of header files
