@@ -1,0 +1,15 @@
+#!/bin/bash
+
+dir1=${1:-jcb-obs1}
+dir2=${2:-jcb-rdas}
+
+rm -rf .yaml.${dir1} .yaml.${dir2}
+for myfile in ${dir1}/*; do
+  cat "${myfile}" >> .yaml.${dir1}
+  filename=$(basename ${myfile})
+  cat "${dir2}/${filename}" >> .yaml.${dir2}
+  #vimdiff ${myfile} ${dir2}/${filename}
+done
+
+vimdiff .yaml.${dir1} .yaml.${dir2}
+vimdiff "${dir1}" "${dir2}"
