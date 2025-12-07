@@ -83,6 +83,12 @@ for key, value in dcObserver.items():
         real_key = key[4:]
     finput = "./jcb-rdas/" + value + ".yaml.j2"
     outfile = open("./jcb-obs1/" + value + ".yaml.j2", 'w')
+    # link to link2rrfs
+    os.makedirs('./link2rrfs', exist_ok=True)
+    dest = f"./link2rrfs/{real_key}.yaml"
+    if os.path.exists(dest):
+        os.remove(dest)
+    os.symlink(f"../jcb-obs1/{value}.yaml.j2", dest)
     # read all lines from an observer
     block = []
     with open(finput, 'r') as infile:
@@ -156,3 +162,4 @@ for key, value in dcObserver.items():
 # print out information
 #
 print("files under 'jcb-obs1/' updated")
+print("links under 'link2rrfs/' made")

@@ -3,3 +3,7 @@ parm
 rrfsparm
 jcb-rdas
 .yaml*
+split.*
+yamltools4jedi
+link2rrfs
+pyDAmonitor
