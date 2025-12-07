@@ -57,6 +57,7 @@ cost function:
     - snowh
     - vegetation_area_fraction
     - air_temperature_at_2m
+    - water_vapor_mixing_ratio_wrt_moist_air_at_2m
     - eastward_wind_at_10m
     - northward_wind_at_10m
     - lai
@@ -208,7 +209,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_t181.nc
@@ -484,7 +485,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_t183.nc
@@ -758,7 +759,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_t187.nc
@@ -769,16 +770,19 @@ cost function:
          simulated variables: [airTemperature]
 
        obs operator:
-           name: VertInterp
-           vertical coordinate: air_pressure
-           observation vertical coordinate: pressure
-           observation vertical coordinate group: MetaData
-           interpolation method: log-linear
-           variables:
-           - name: airTemperature
+         name: SfcCorrected
+         correction scheme to use: GSL
+         gsl parameters:
+           temperature lapse rate option: Local
+           temperature local lapse rate level: 10
+           temperature lapse rate threshold: true
+           min threshold: 0.5
+           max threshold: 10.0
+         variables:
+         - name: airTemperature
 
        linear obs operator:
-         name: VertInterp
+         name: Identity
 
        obs error:
          covariance model: diagonal
@@ -814,16 +818,16 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-#         - filter: Temporal Thinning
-#           filter variables:
-#           - name: airTemperature
-#           min_spacing: PT90M
-#           tolerance: PT0H
-#           seed_time: "@analysisDate@"
-#           category_variable:
-#             name: MetaData/longitude_latitude_pressure
-#           action:
-#             name: reduce obs space
+         - filter: Temporal Thinning
+           filter variables:
+           - name: airTemperature
+           min_spacing: PT90M
+           tolerance: PT0H
+           seed_time: "@analysisDate@"
+           category_variable:
+             name: MetaData/stationIdentification
+           action:
+             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -851,24 +855,24 @@ cost function:
                  xvals: [110000, 105000, 100000, 95000, 90000, 85000, 80000, 75000, 70000, 65000, 60000, 55000, 50000, 45000, 40000, 35000, 30000, 25000, 20000, 15000, 10000, 7500, 5000, 4000, 3000, 2000, 1000, 500, 400, 300, 200, 100, 0]
                  errors: [2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585, 2.2585]
 
-         # Error inflation based on pressure check (setupt.f90)
-         - filter: Perform Action
-           filter variables:
-           - name: airTemperature
-           where:
-           - variable: ObsType/airTemperature
-             is_in: 187
-           action:
-             name: inflate error
-             inflation variable:
-               name: ObsFunction/ObsErrorFactorPressureCheck
-               options:
-                 variable: airTemperature
-                 inflation factor: 8.0
-                 # The new feature "surface observation error ramp"
-                 # needs to be added to UFO to align with the ramp
-                 # options for temperature and humidity in GSI.
-                 surface observation error ramp: true
+#         # Error inflation based on pressure check (setupt.f90)
+#         - filter: Perform Action
+#           filter variables:
+#           - name: airTemperature
+#           where:
+#           - variable: ObsType/airTemperature
+#             is_in: 187
+#           action:
+#             name: inflate error
+#             inflation variable:
+#               name: ObsFunction/ObsErrorFactorPressureCheck
+#               options:
+#                 variable: airTemperature
+#                 inflation factor: 8.0
+#                 # The new feature "surface observation error ramp"
+#                 # needs to be added to UFO to align with the ramp
+#                 # options for temperature and humidity in GSI.
+#                 surface observation error ramp: true
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -1033,7 +1037,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_q181.nc
@@ -1308,7 +1312,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_q183.nc
@@ -1582,7 +1586,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_q187.nc
@@ -1593,16 +1597,13 @@ cost function:
          simulated variables: [specificHumidity]
 
        obs operator:
-           name: VertInterp
-           vertical coordinate: air_pressure
-           observation vertical coordinate: pressure
-           observation vertical coordinate group: MetaData
-           interpolation method: log-linear
-           variables:
-           - name: specificHumidity
+         name: SfcCorrected
+         correction scheme to use: GSL
+         variables:
+         - name: specificHumidity
 
        linear obs operator:
-         name: VertInterp
+         name: Identity
 
        obs error:
          covariance model: diagonal
@@ -1638,16 +1639,16 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-#         - filter: Temporal Thinning
-#           filter variables:
-#           - name: specificHumidity
-#           min_spacing: PT90M
-#           tolerance: PT0H
-#           seed_time: "@analysisDate@"
-#           category_variable:
-#             name: MetaData/longitude_latitude_pressure
-#           action:
-#             name: reduce obs space
+         - filter: Temporal Thinning
+           filter variables:
+           - name: specificHumidity
+           min_spacing: PT90M
+           tolerance: PT0H
+           seed_time: "@analysisDate@"
+           category_variable:
+             name: MetaData/stationIdentification
+           action:
+             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -1668,31 +1669,31 @@ cost function:
            action:
              name: assign error
              error function:
-               name: ObsFunction/ObsErrorModelStepwiseLinear
+               name: ObsFunction/ObsErrorModelHumidity
                options:
                  xvar:
                    name: MetaData/pressure
                  xvals: [110000, 105000, 100000, 95000, 90000, 85000, 80000, 75000, 70000, 65000, 60000, 55000, 50000, 45000, 40000, 35000, 30000, 25000, 20000, 15000, 10000, 7500, 5000, 4000, 3000, 2000, 1000, 500, 400, 300, 200, 100, 0]
                  errors: [0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912, 0.05912]
 
-         # Error inflation based on pressure check (setupq.f90)
-         - filter: Perform Action
-           filter variables:
-           - name: specificHumidity
-           where:
-           - variable: ObsType/specificHumidity
-             is_in: 187
-           action:
-             name: inflate error
-             inflation variable:
-               name: ObsFunction/ObsErrorFactorPressureCheck
-               options:
-                 variable: specificHumidity
-                 inflation factor: 8.0
-                 # The new feature "surface observation error ramp"
-                 # needs to be added to UFO to align with the ramp
-                 # options for temperature and humidity in GSI.
-                 #surface observation error ramp: true
+#         # Error inflation based on pressure check (setupq.f90)
+#         - filter: Perform Action
+#           filter variables:
+#           - name: specificHumidity
+#           where:
+#           - variable: ObsType/specificHumidity
+#             is_in: 187
+#           action:
+#             name: inflate error
+#             inflation variable:
+#               name: ObsFunction/ObsErrorFactorPressureCheck
+#               options:
+#                 variable: specificHumidity
+#                 inflation factor: 8.0
+#                 # The new feature "surface observation error ramp"
+#                 # needs to be added to UFO to align with the ramp
+#                 # options for temperature and humidity in GSI.
+#                 #surface observation error ramp: true
 
 #         # Error inflation based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -1857,7 +1858,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_ps181.nc
@@ -2125,7 +2126,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_ps187.nc
@@ -2136,10 +2137,13 @@ cost function:
          simulated variables: [stationPressure]
 
        obs operator:
-         name: SfcPCorrected
-         da_psfc_scheme: GSI
+         name: SfcCorrected
+         correction scheme to use: GSL
          geovar_sfc_geomz: geopotential_height_at_surface
          geovar_geomz: geopotential_height
+         variables:
+         - name: stationPressure
+
        linear obs operator:
          name: Identity
 
@@ -2177,16 +2181,16 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-#         - filter: Temporal Thinning
-#           filter variables:
-#           - name: stationPressure
-#           min_spacing: PT90M
-#           tolerance: PT0H
-#           seed_time: "@analysisDate@"
-#           category_variable:
-#             name: MetaData/longitude_latitude_pressure
-#           action:
-#             name: reduce obs space
+         - filter: Temporal Thinning
+           filter variables:
+           - name: stationPressure
+           min_spacing: PT90M
+           tolerance: PT0H
+           seed_time: "@analysisDate@"
+           category_variable:
+             name: MetaData/stationIdentification
+           action:
+             name: reduce obs space
 
          # Online regional domain check
          - filter: Bounds Check
@@ -2393,7 +2397,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_uv281.nc
@@ -2710,7 +2714,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_uv284.nc
@@ -3026,7 +3030,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpsfc_uv287.nc
@@ -3037,17 +3041,14 @@ cost function:
          simulated variables: [windEastward, windNorthward]
 
        obs operator:
-           name: VertInterp
-           vertical coordinate: air_pressure
-           observation vertical coordinate: pressure
-           observation vertical coordinate group: MetaData
-           interpolation method: log-linear
-           variables:
-           - name: windEastward
-           - name: windNorthward
+         name: SfcCorrected
+         correction scheme to use: GSL
+         variables:
+         - name: windEastward
+         - name: windNorthward
 
        linear obs operator:
-         name: VertInterp
+         name: Identity
 
        obs error:
          covariance model: diagonal
@@ -3084,17 +3085,17 @@ cost function:
              name: reduce obs space
 
          # Duplicate Check
-#         - filter: Temporal Thinning
-#           filter variables:
-#           - name: windEastward
-#           - name: windNorthward
-#           min_spacing: PT90M
-#           tolerance: PT0H
-#           seed_time: "@analysisDate@"
-#           category_variable:
-#             name: MetaData/longitude_latitude_pressure
-#           action:
-#             name: reduce obs space
+         - filter: Temporal Thinning
+           filter variables:
+           - name: windEastward
+           - name: windNorthward
+           min_spacing: PT90M
+           tolerance: PT0H
+           seed_time: "@analysisDate@"
+           category_variable:
+             name: MetaData/stationIdentification
+           action:
+             name: reduce obs space
 
          # Online domain check
          - filter: Bounds Check
@@ -3124,41 +3125,41 @@ cost function:
                  xvals: [110000, 105000, 100000, 95000, 90000, 85000, 80000, 75000, 70000, 65000, 60000, 55000, 50000, 45000, 40000, 35000, 30000, 25000, 20000, 15000, 10000, 7500, 5000, 4000, 3000, 2000, 1000, 500, 400, 300, 200, 100, 0]
                  errors: [1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874, 1.5874]
 
-         # Error inflation (windEastward) based on pressure check (setupw.f90)
-         - filter: Perform Action
-           filter variables:
-           - name: windEastward
-           where:
-           - variable: ObsType/windEastward
-             is_in: 287
-           action:
-             name: inflate error
-             inflation variable:
-               name: ObsFunction/ObsErrorFactorPressureCheck
-               options:
-                 variable: windEastward
-                 inflation factor: 4.0
-                 SetSfcWndObsHeight: true
-                 AddObsHeightToStationElevation: true
-                 AssumedSfcWndObsHeight: 10
+#         # Error inflation (windEastward) based on pressure check (setupw.f90)
+#         - filter: Perform Action
+#           filter variables:
+#           - name: windEastward
+#           where:
+#           - variable: ObsType/windEastward
+#             is_in: 287
+#           action:
+#             name: inflate error
+#             inflation variable:
+#               name: ObsFunction/ObsErrorFactorPressureCheck
+#               options:
+#                 variable: windEastward
+#                 inflation factor: 4.0
+#                 SetSfcWndObsHeight: true
+#                 AddObsHeightToStationElevation: true
+#                 AssumedSfcWndObsHeight: 10
 
-         # Error inflation (windNorthward) based on pressure check (setupw.f90)
-         - filter: Perform Action
-           filter variables:
-           - name: windNorthward
-           where:
-           - variable: ObsType/windNorthward
-             is_in: 287
-           action:
-             name: inflate error
-             inflation variable:
-               name: ObsFunction/ObsErrorFactorPressureCheck
-               options:
-                 variable: windNorthward
-                 inflation factor: 4.0
-                 SetSfcWndObsHeight: true
-                 AddObsHeightToStationElevation: true
-                 AssumedSfcWndObsHeight: 10
+#         # Error inflation (windNorthward) based on pressure check (setupw.f90)
+#         - filter: Perform Action
+#           filter variables:
+#           - name: windNorthward
+#           where:
+#           - variable: ObsType/windNorthward
+#             is_in: 287
+#           action:
+#             name: inflate error
+#             inflation variable:
+#               name: ObsFunction/ObsErrorFactorPressureCheck
+#               options:
+#                 variable: windNorthward
+#                 inflation factor: 4.0
+#                 SetSfcWndObsHeight: true
+#                 AddObsHeightToStationElevation: true
+#                 AssumedSfcWndObsHeight: 10
 
 #         # Error inflation (windEastward) based on errormod (qcmod.f90)
 #         - filter: Perform Action
@@ -3339,7 +3340,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpupa_t120.nc
@@ -3613,7 +3614,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpupa_t132.nc
@@ -3887,7 +3888,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpupa_q120.nc
@@ -4161,7 +4162,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpupa_q132.nc
@@ -4435,7 +4436,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpupa_ps120.nc
@@ -4702,7 +4703,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpupa_uv220.nc
@@ -5012,7 +5013,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_adpupa_uv232.nc
@@ -5322,7 +5323,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircar_t133.nc
@@ -5596,7 +5597,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircar_q133.nc
@@ -5870,7 +5871,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircar_uv233.nc
@@ -6180,7 +6181,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircft_t130.nc
@@ -6454,7 +6455,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircft_t131.nc
@@ -6728,7 +6729,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircft_t134.nc
@@ -7002,7 +7003,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircft_t135.nc
@@ -7276,7 +7277,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircft_q134.nc
@@ -7550,7 +7551,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircft_uv230.nc
@@ -7860,7 +7861,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircft_uv231.nc
@@ -8170,7 +8171,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircft_uv234.nc
@@ -8480,7 +8481,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_aircft_uv235.nc
@@ -8793,7 +8794,7 @@ cost function:
            sort variable: "pressure"
            sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_gnss_ztd.nc
@@ -8864,7 +8865,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_msonet_t188.nc
@@ -9138,7 +9139,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_msonet_q188.nc
@@ -9412,7 +9413,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_msonet_ps188.nc
@@ -9679,7 +9680,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_msonet_uv288.nc
@@ -10257,7 +10258,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_proflr_uv227.nc
@@ -10611,7 +10612,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_rassda_t126.nc
@@ -10885,7 +10886,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_t180.nc
@@ -11159,7 +11160,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_t182.nc
@@ -11434,7 +11435,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_t183.nc
@@ -11708,7 +11709,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_q180.nc
@@ -11982,7 +11983,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_q182.nc
@@ -12257,7 +12258,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_q183.nc
@@ -12531,7 +12532,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_ps180.nc
@@ -12807,7 +12808,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_uv280.nc
@@ -13123,7 +13124,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_uv282.nc
@@ -13440,7 +13441,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_sfcshp_uv284.nc
@@ -13756,7 +13757,7 @@ cost function:
              sort variable: "pressure"
              sort order: "descending"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_vadwnd_uv224.nc
@@ -14121,7 +14122,7 @@ cost function:
              obsfile: "data/obs/ioda_amsua_n19.nc"
              missing file action: "warn"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_amsua_n19.nc
@@ -14176,6 +14177,7 @@ cost function:
                ratio for small dataset: 2.0
            output file: data/satbias_out/amsua_n19.satbias_cov.nc
        obs pre filters:
+
        # Regional domain check to remove data outside of model domain
        - filter: Bounds Check
          filter variables:
@@ -14533,7 +14535,7 @@ cost function:
              obsfile: "data/obs/ioda_atms_n20.nc"
              missing file action: "warn"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_atms_n20.nc
@@ -14589,6 +14591,50 @@ cost function:
            output file: data/satbias_out/atms_n20.satbias_cov.nc
 
        obs pre filters:
+       # Step 0-A: Create Diagnostic Flags
+       - filter: Create Diagnostic Flags
+         filter variables:
+         - name: brightnessTemperature
+           channels: *atms_n20_channels
+         flags:
+         - name: ScanEdgeRemoval
+           initial value: false
+           force reinitialization: false
+         - name: Thinning
+           initial value: false
+           force reinitialization: false
+         - name: CLWRetrievalCheck
+           initial value: false
+           force reinitialization: false
+         - name: WindowChannelExtremeResidual
+           initial value: false
+           force reinitialization: false
+         - name: HydrometeorCheck
+           initial value: false
+           force reinitialization: false
+         - name: GrossCheck
+           initial value: false
+           force reinitialization: false
+         - name: InterChannelConsistency
+           initial value: false
+           force reinitialization: false
+         - name: UseflagCheck
+           initial value: false
+           force reinitialization: false
+
+       obs post filters:
+       # Step 0-B: Calculate derived variables
+       # Calculate CLW retrieved from observation
+       - filter: Variable Assignment
+         assignments:
+         - name: CLWRetFromObs@DerivedMetaData
+           type: float
+           function:
+             name: CLWRetMW@ObsFunction
+             options:
+               clwret_ch238: 1
+               clwret_ch314: 2
+               clwret_types: [ObsValue]
        # Calculate CLW retrieved from observation
        - filter: Variable Assignment
          assignments:
@@ -15077,7 +15123,7 @@ cost function:
              obsfile: "data/obs/ioda_atms_npp.nc"
              missing file action: "warn"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_atms_npp.nc
@@ -15134,6 +15180,50 @@ cost function:
            output file: data/satbias_out/atms_npp.satbias_cov.nc
 
        obs pre filters:
+       # Step 0-A: Create Diagnostic Flags
+       - filter: Create Diagnostic Flags
+         filter variables:
+         - name: brightnessTemperature
+           channels: *atms_npp_channels
+         flags:
+         - name: ScanEdgeRemoval
+           initial value: false
+           force reinitialization: false
+         - name: Thinning
+           initial value: false
+           force reinitialization: false
+         - name: CLWRetrievalCheck
+           initial value: false
+           force reinitialization: false
+         - name: WindowChannelExtremeResidual
+           initial value: false
+           force reinitialization: false
+         - name: HydrometeorCheck
+           initial value: false
+           force reinitialization: false
+         - name: GrossCheck
+           initial value: false
+           force reinitialization: false
+         - name: InterChannelConsistency
+           initial value: false
+           force reinitialization: false
+         - name: UseflagCheck
+           initial value: false
+           force reinitialization: false
+
+       obs post filters:
+       # Step 0-B: Calculate derived variables
+       # Calculate CLW retrieved from observation
+       - filter: Variable Assignment
+         assignments:
+         - name: CLWRetFromObs@DerivedMetaData
+           type: float
+           function:
+             name: CLWRetMW@ObsFunction
+             options:
+               clwret_ch238: 1
+               clwret_ch314: 2
+               clwret_types: [ObsValue]
        # Calculate CLW retrieved from observation
        - filter: Variable Assignment
          assignments:
@@ -15609,7 +15699,7 @@ cost function:
              obsfile: "data/obs/ioda_abi_g16.nc"
              missing file action: "warn"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_abi_g16.nc
@@ -16090,7 +16180,7 @@ cost function:
              obsfile: "data/obs/ioda_abi_g18.nc"
              missing file action: "warn"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_abi_g18.nc
@@ -16582,7 +16672,7 @@ cost function:
              obsfile: "data/obs/ioda_atms_n21.nc"
              missing file action: "warn"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_atms_n21.nc
@@ -16638,6 +16728,50 @@ cost function:
            output file: data/satbias_out/atms_n21.satbias_cov.nc
 
        obs pre filters:
+       # Step 0-A: Create Diagnostic Flags
+       - filter: Create Diagnostic Flags
+         filter variables:
+         - name: brightnessTemperature
+           channels: *atms_n21_channels
+         flags:
+         - name: ScanEdgeRemoval
+           initial value: false
+           force reinitialization: false
+         - name: Thinning
+           initial value: false
+           force reinitialization: false
+         - name: CLWRetrievalCheck
+           initial value: false
+           force reinitialization: false
+         - name: WindowChannelExtremeResidual
+           initial value: false
+           force reinitialization: false
+         - name: HydrometeorCheck
+           initial value: false
+           force reinitialization: false
+         - name: GrossCheck
+           initial value: false
+           force reinitialization: false
+         - name: InterChannelConsistency
+           initial value: false
+           force reinitialization: false
+         - name: UseflagCheck
+           initial value: false
+           force reinitialization: false
+
+       obs post filters:
+       # Step 0-B: Calculate derived variables
+       # Calculate CLW retrieved from observation
+       - filter: Variable Assignment
+         assignments:
+         - name: CLWRetFromObs@DerivedMetaData
+           type: float
+           function:
+             name: CLWRetMW@ObsFunction
+             options:
+               clwret_ch238: 1
+               clwret_ch314: 2
+               clwret_types: [ObsValue]
        # Calculate CLW retrieved from observation
        - filter: Variable Assignment
          assignments:
@@ -17115,7 +17249,7 @@ cost function:
              obsfile: "data/obs/ioda_amsua_metop-b.nc"
              missing file action: "warn"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_amsua_metop-b.nc
@@ -17516,7 +17650,7 @@ cost function:
              obsfile: "data/obs/ioda_amsua_metop-c.nc"
              missing file action: "warn"
          obsdataout:
-           empty obs space action: "skip output"
+           empty obs space action: "@emptyObsSpaceAction@"
            engine:
              type: H5File
              obsfile: jdiag_amsua_metop-c.nc
