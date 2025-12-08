@@ -47,6 +47,10 @@ sfcshp_uv280
 sfcshp_uv282
 sfcshp_uv284
 vadwnd_uv224
+satwnd_uv245_270
+satwnd_uv245_272
+satwnd_uv246_270
+satwnd_uv246_272
 amsua_n19
 atms_n20
 atms_npp
