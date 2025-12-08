@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Check if the script is sourced
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
@@ -8,7 +8,8 @@ fi
 
 ### scripts continues here...
 ushdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-source ${ushdir}/detect_machine.sh
+# shellcheck disable=SC1091
+source "${ushdir}/detect_machine.sh"
 
 case ${MACHINE} in
   wcoss2)
@@ -32,20 +33,18 @@ case ${MACHINE} in
   hercules)
     BASEDIR=/work/noaa/zrtrr/gge/hercules/Miniforge3
     ;;
-  gaea)
+  gaeac?)
     if [[ -d /gpfs/f5 ]]; then
       BASEDIR=/to/be/added
     elif [[ -d /gpfs/f6 ]]; then
       BASEDIR=/gpfs/f6/bil-fire10-oar/world-shared/gge/Miniforge3
     else
       echo "unsupported gaea cluster: ${MACHINE}"
-      exit 1
     fi
     ;;
   *)
     BASEDIR=/unknown/location
     echo "platform not supported: ${MACHINE}"
-    exit 1
     ;;
 esac
 eval "$($BASEDIR/bin/micromamba shell hook --shell bash)"
@@ -53,4 +52,3 @@ micromamba activate ${BASEDIR}/envs/pyDAmonitor
 alias conda=micromamba
 
 export pyDAmonitor_ROOT="$(dirname ${ushdir})"
-${ushdir}/init.sh
